@@ -1,0 +1,162 @@
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.tab-button {
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-family: "Courier New", "Monaco", monospace;
+  font-size: 1rem;
+  color: #00ff00;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  min-width: 120px;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.tab-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 255, 0, 0.05);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tab-button:hover::before {
+  opacity: 1;
+}
+
+.tab-button:hover {
+  color: #00ff88;
+  text-shadow: 0 0 15px rgba(0, 255, 136, 0.8);
+  transform: translateY(-2px);
+}
+
+.tab-button.active {
+  color: #00ff88;
+  text-shadow: 0 0 20px rgba(0, 255, 136, 1);
+  background: rgba(0, 255, 0, 0.1);
+}
+
+.tab-button.active::before {
+  opacity: 1;
+}
+
+.tab-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Cool borders */
+.tab-border-top,
+.tab-border-bottom,
+.tab-border-left,
+.tab-border-right {
+  position: absolute;
+  background: #00ff00;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 255, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.tab-border-top {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.tab-border-bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+.tab-border-left {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.tab-border-right {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 2px;
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+
+.tab-button:hover .tab-border-top,
+.tab-button.active .tab-border-top {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.tab-button:hover .tab-border-bottom,
+.tab-button.active .tab-border-bottom {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+
+.tab-button:hover .tab-border-left,
+.tab-button.active .tab-border-left {
+  transform: scaleY(1);
+  transform-origin: top;
+}
+
+.tab-button:hover .tab-border-right,
+.tab-button.active .tab-border-right {
+  transform: scaleY(1);
+  transform-origin: bottom;
+}
+
+.tab-button:active {
+  transform: translateY(0);
+}
+
+.tab-button:active .tab-border-top,
+.tab-button:active .tab-border-bottom,
+.tab-button:active .tab-border-left,
+.tab-button:active .tab-border-right {
+  box-shadow: 0 0 15px rgba(0, 255, 0, 1), 0 0 30px rgba(0, 255, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+  .tabs-container {
+    gap: 0.75rem;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+  }
+
+  .tab-button {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    min-width: 90px;
+  }
+}
