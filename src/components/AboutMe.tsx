@@ -34,6 +34,12 @@ export default function AboutMe() {
                             linkedin.com/in/boris-nikolovski
                         </a>
                     </div>
+                    <div className="contact-item">
+                        <span className="contact-label">GitHub:</span>
+                        <a href="https://github.com/TheBore" target="_blank" rel="noopener noreferrer" className="contact-link">
+                            https://github.com/TheBore
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

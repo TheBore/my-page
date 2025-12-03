@@ -5,6 +5,7 @@
   min-height: 100vh;
   background: #0a0a0a;
   padding: 2rem;
+  position: relative;
 }
 
 .monitor-frame {
@@ -23,6 +24,126 @@
   justify-content: center;
 }
 
+/* Power Button - Retro Style */
+.power-button {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 4px solid #2a2a2a;
+  background: linear-gradient(145deg, #3a3a3a, #1a1a1a);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: all 0.2s ease;
+  padding: 0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.1), 0 4px 8px rgba(0, 0, 0, 0.5),
+    0 0 0 2px #000;
+  position: relative;
+}
+
+.power-button::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.15),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.power-button.on {
+  background: linear-gradient(145deg, #c41e3a, #8b0000);
+  border-color: #4a4a4a;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.15), 0 4px 8px rgba(0, 0, 0, 0.5),
+    0 0 0 2px #000, 0 0 15px rgba(196, 30, 58, 0.4),
+    inset 0 0 20px rgba(196, 30, 58, 0.2);
+}
+
+.power-button.on::before {
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.25),
+    transparent 70%
+  );
+}
+
+.power-button.off {
+  background: linear-gradient(145deg, #4a1a1a, #2a0a0a);
+  border-color: #2a2a2a;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.7),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.05), 0 4px 8px rgba(0, 0, 0, 0.5),
+    0 0 0 2px #000;
+}
+
+.power-button:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.15), 0 6px 12px rgba(0, 0, 0, 0.6),
+    0 0 0 2px #000, 0 0 20px rgba(196, 30, 58, 0.5);
+}
+
+.power-button:active {
+  transform: translateY(0);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.1), 0 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 0 2px #000;
+}
+
+.power-button-icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+.power-button-icon circle {
+  fill: none;
+  stroke: white;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+}
+
+.power-button-icon line {
+  stroke: white;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+}
+
+.power-button.off .power-button-icon circle,
+.power-button.off .power-button-icon line {
+  opacity: 0.6;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.2));
+}
+
+@keyframes powerPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.4),
+      inset 0 0 15px rgba(255, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 0, 0, 1), 0 0 50px rgba(255, 0, 0, 0.6),
+      inset 0 0 20px rgba(255, 0, 0, 0.5);
+  }
+}
+
 .monitor-screen {
   width: 100%;
   height: 100%;
@@ -39,6 +160,48 @@
   position: relative;
   overflow: hidden;
   border: 2px solid rgba(0, 255, 0, 0.2);
+  transition: all 0.6s ease;
+}
+
+.monitor-screen.powered-off {
+  background: #1a1a1a;
+  border-color: rgba(100, 100, 100, 0.3);
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+  animation: tvTurnOff 0.6s ease forwards;
+}
+
+.monitor-screen.powered-on {
+  animation: tvTurnOn 0.6s ease forwards;
+}
+
+@keyframes tvTurnOff {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0.01);
+    opacity: 0;
+  }
+}
+
+@keyframes tvTurnOn {
+  0% {
+    transform: scale(0.01);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .monitor-screen::before {
@@ -57,6 +220,13 @@
   );
   pointer-events: none;
   animation: scanline 8s linear infinite;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.monitor-screen.powered-off::before {
+  opacity: 0;
+  animation: none;
 }
 
 .monitor-screen::after {
@@ -74,6 +244,13 @@
   );
   pointer-events: none;
   animation: pulse 4s ease-in-out infinite;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.monitor-screen.powered-off::after {
+  opacity: 0;
+  animation: none;
 }
 
 @keyframes scanline {
@@ -105,6 +282,13 @@
   z-index: 1;
   color: #00ff00;
   text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  transition: all 0.6s ease;
+}
+
+.screen-content.disabled {
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
 }
 
 /* Webkit Scrollbar Styles */
@@ -163,6 +347,10 @@
 }
 
 @media (max-width: 768px) {
+  .monitor-container {
+    padding: 1rem;
+  }
+
   .monitor-frame {
     width: 95vw;
     height: 90vh;
@@ -172,5 +360,18 @@
   .screen-content {
     padding: 1rem;
     padding-bottom: 180px; /* Increased to account for wrapped tabs on mobile */
+  }
+
+  .power-button {
+    width: 55px;
+    height: 55px;
+    bottom: 1rem;
+    right: 1rem;
+    border-width: 3px;
+  }
+
+  .power-button-icon {
+    width: 24px;
+    height: 24px;
   }
 }

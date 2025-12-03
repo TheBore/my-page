@@ -7,8 +7,11 @@ const skills = [
     'Git',
     'SQL',
     'Database Management',
-    'Java Spring',
-    'Linux'
+    'Java Spring Boot',
+    'Linux',
+    'Docker',
+    'Server Management',
+    'CI/CD',
 ]
 
 export default function Skills() {
