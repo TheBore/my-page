@@ -1,5 +1,11 @@
 import { useState } from 'react'
 import MonitorLayout from './components/MonitorLayout'
+import WorkExperience from './components/WorkExperience'
+import AboutMe from './components/AboutMe'
+import Skills from './components/Skills'
+import Projects from './components/Projects'
+import Education from './components/Education'
+import Hobbies from './components/Hobbies'
 import './App.css'
 
 function App() {
@@ -8,33 +14,17 @@ function App() {
   const renderContent = () => {
     switch (activeTab) {
       case 'about me':
-        return (
-          <div className="page-content">
-            <h1>About Me</h1>
-            <p>Your about me content goes here</p>
-          </div>
-        )
+        return <AboutMe />
       case 'skills':
-        return (
-          <div className="page-content">
-            <h1>Skills</h1>
-            <p>Your skills content goes here</p>
-          </div>
-        )
+        return <Skills />
       case 'projects':
-        return (
-          <div className="page-content">
-            <h1>Projects</h1>
-            <p>Your projects content goes here</p>
-          </div>
-        )
+        return <Projects />
+      case 'work experience':
+        return <WorkExperience />
+      case 'education history':
+        return <Education />
       case 'hobbies':
-        return (
-          <div className="page-content">
-            <h1>Hobbies</h1>
-            <p>Your hobbies content goes here</p>
-          </div>
-        )
+        return <Hobbies />
       default:
         return (
           <div className="page-content">

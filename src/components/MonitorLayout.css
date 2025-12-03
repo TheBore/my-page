@@ -100,30 +100,66 @@
   width: 100%;
   height: 100%;
   padding: 2rem;
-  padding-bottom: 100px;
+  padding-bottom: 120px; /* Increased base padding for tabs */
   overflow-y: auto;
   z-index: 1;
   color: #00ff00;
   text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
 }
 
+/* Webkit Scrollbar Styles */
 .screen-content::-webkit-scrollbar {
-  width: 12px;
+  width: 14px;
 }
 
 .screen-content::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 0, 0.1);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .screen-content::-webkit-scrollbar-thumb {
-  background: rgba(0, 255, 0, 0.3);
-  border-radius: 6px;
-  border: 2px solid rgba(0, 0, 0, 0.3);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 0, 0.4) 0%,
+    rgba(0, 255, 136, 0.5) 50%,
+    rgba(0, 255, 0, 0.4) 100%
+  );
+  border-radius: 8px;
+  border: 2px solid rgba(0, 255, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.6), inset 0 0 5px rgba(0, 255, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 .screen-content::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 255, 0, 0.5);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 0, 0.6) 0%,
+    rgba(0, 255, 136, 0.7) 50%,
+    rgba(0, 255, 0, 0.6) 100%
+  );
+  border-color: rgba(0, 255, 0, 0.6);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.8), 0 0 25px rgba(0, 255, 0, 0.4),
+    inset 0 0 8px rgba(0, 255, 0, 0.5);
+  transform: scaleX(1.1);
+}
+
+.screen-content::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 0, 0.8) 0%,
+    rgba(0, 255, 136, 0.9) 50%,
+    rgba(0, 255, 0, 0.8) 100%
+  );
+  box-shadow: 0 0 20px rgba(0, 255, 0, 1), 0 0 30px rgba(0, 255, 0, 0.6),
+    inset 0 0 10px rgba(0, 255, 0, 0.7);
+}
+
+/* Firefox Scrollbar Styles */
+.screen-content {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 0, 0.5) rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 768px) {
@@ -135,5 +171,6 @@
 
   .screen-content {
     padding: 1rem;
+    padding-bottom: 180px; /* Increased to account for wrapped tabs on mobile */
   }
 }

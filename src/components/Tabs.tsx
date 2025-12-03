@@ -6,7 +6,7 @@ interface TabsProps {
 }
 
 export default function Tabs({ onTabChange, activeTab }: TabsProps) {
-    const tabs = ['about me', 'skills', 'projects', 'hobbies']
+    const tabs = ['about me', 'skills', 'projects', 'work experience', 'education history', 'hobbies']
 
     const playClickSound = () => {
         const audio = new Audio('/src/assets/scific_click_short_ubtotr.wav')

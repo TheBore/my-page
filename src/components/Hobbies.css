@@ -1,0 +1,168 @@
+.hobbies-container {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #00ff00;
+  text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hobby-card {
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(0, 255, 0, 0.3);
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  overflow: visible;
+  cursor: default;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hobby-card:hover {
+  border-color: rgba(0, 255, 0, 0.6);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3),
+    inset 0 0 20px rgba(0, 255, 0, 0.05);
+  transform: translateY(-5px);
+}
+
+.hobby-text {
+  position: relative;
+  z-index: 2;
+  color: #00ff00;
+  font-size: 1.1rem;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-transform: uppercase;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.4;
+  padding: 0.25rem;
+}
+
+.hobby-card:hover .hobby-text {
+  color: #00ff88;
+  text-shadow: 0 0 15px rgba(0, 255, 136, 0.8);
+}
+
+/* Animated borders */
+.hobby-border-top,
+.hobby-border-bottom,
+.hobby-border-left,
+.hobby-border-right {
+  position: absolute;
+  background: #00ff00;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 255, 0, 0.4);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.hobby-border-top {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.hobby-border-bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+.hobby-border-left {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.hobby-border-right {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 2px;
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+
+.hobby-card:hover .hobby-border-top,
+.hobby-card:hover .hobby-border-bottom,
+.hobby-card:hover .hobby-border-left,
+.hobby-card:hover .hobby-border-right {
+  opacity: 1;
+}
+
+.hobby-card:hover .hobby-border-top {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.hobby-card:hover .hobby-border-bottom {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+
+.hobby-card:hover .hobby-border-left {
+  transform: scaleY(1);
+  transform-origin: top;
+}
+
+.hobby-card:hover .hobby-border-right {
+  transform: scaleY(1);
+  transform-origin: bottom;
+}
+
+@media (max-width: 768px) {
+  .hobbies-container {
+    padding: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hobbies-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .hobby-card {
+    padding: 1rem;
+    min-height: 70px;
+  }
+
+  .hobby-text {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+}
