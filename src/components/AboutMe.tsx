@@ -1,4 +1,5 @@
 import './AboutMe.css'
+import profileImage from '../assets/profile_picture.png'
 
 export default function AboutMe() {
     return (
@@ -8,12 +9,18 @@ export default function AboutMe() {
             <div className="profile-section">
                 <h2 className="subsection-title">PROFILE</h2>
                 <div className="profile-card">
-                    <p className="profile-text">
-                        Results-oriented Software Engineering Development Team Lead with a proven track record in designing scalable applications.
-                        Skilled in working with cross-functional teams to build, refine, and rigorously test high-quality software solutions.
-                        Proficient in React, Java Spring, and Git-centered development environments with a strong focus on standardizing deployment pipelines.
-                        Experienced in creating automation frameworks and managing dynamic metadata to optimize data organization and streamline system integration.
-                    </p>
+                    <div className="profile-content-wrapper">
+                        <div className="profile-image-container">
+                            <img src={profileImage} alt="Boris Nikolovski" className="profile-image" />
+                            <div className="profile-image-overlay"></div>
+                        </div>
+                        <p className="profile-text">
+                            Results-oriented Software Engineering Development Team Lead with a proven track record in designing scalable applications.
+                            Skilled in working with cross-functional teams to build, refine, and rigorously test high-quality software solutions.
+                            Proficient in React, Java Spring, and Git-centered development environments with a strong focus on standardizing deployment pipelines.
+                            Experienced in creating automation frameworks and managing dynamic metadata to optimize data organization and streamline system integration.
+                        </p>
+                    </div>
                 </div>
             </div>
 

@@ -10,12 +10,12 @@
 .page-content h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #00ff00;
-  text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+  color: #ffa500;
+  text-shadow: 0 0 20px rgba(255, 165, 0, 0.8);
 }
 
 .page-content p {
   font-size: 1.2rem;
-  color: #00ff88;
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }

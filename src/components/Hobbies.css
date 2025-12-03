@@ -7,8 +7,8 @@
 
 .section-title {
   font-size: 2.5rem;
-  color: #00ff00;
-  text-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+  color: #ffa500;
+  text-shadow: 0 0 20px rgba(255, 165, 0, 0.8);
   margin-bottom: 2rem;
   text-align: center;
   letter-spacing: 4px;
@@ -26,7 +26,7 @@
 .hobby-card {
   position: relative;
   background: rgba(0, 0, 0, 0.6);
-  border: 2px solid rgba(0, 255, 0, 0.3);
+  border: 2px solid rgba(255, 165, 0, 0.3);
   padding: 1.5rem;
   text-align: center;
   transition: all 0.3s ease;
@@ -39,18 +39,18 @@
 }
 
 .hobby-card:hover {
-  border-color: rgba(0, 255, 0, 0.6);
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3),
-    inset 0 0 20px rgba(0, 255, 0, 0.05);
+  border-color: rgba(255, 165, 0, 0.6);
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.3),
+    inset 0 0 20px rgba(255, 165, 0, 0.05);
   transform: translateY(-5px);
 }
 
 .hobby-text {
   position: relative;
   z-index: 2;
-  color: #00ff00;
+  color: #ffa500;
   font-size: 1.1rem;
-  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
   letter-spacing: 1px;
   font-weight: bold;
   text-transform: uppercase;
@@ -62,8 +62,8 @@
 }
 
 .hobby-card:hover .hobby-text {
-  color: #00ff88;
-  text-shadow: 0 0 15px rgba(0, 255, 136, 0.8);
+  color: #ffd700;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
 }
 
 /* Animated borders */
@@ -72,8 +72,8 @@
 .hobby-border-left,
 .hobby-border-right {
   position: absolute;
-  background: #00ff00;
-  box-shadow: 0 0 10px rgba(0, 255, 0, 0.8), 0 0 20px rgba(0, 255, 0, 0.4);
+  background: #ffa500;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.8), 0 0 20px rgba(255, 165, 0, 0.4);
   transition: all 0.3s ease;
   opacity: 0;
 }

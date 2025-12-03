@@ -6,7 +6,9 @@ const hobbies = [
     'DIY Stuff',
     'Electronics',
     'Arduino/Raspberry Projects',
-    'Book Nerd'
+    'Gaming',
+    'Board Games',
+    'Driving'
 ]
 
 export default function Hobbies() {
